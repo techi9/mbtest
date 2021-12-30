@@ -8,7 +8,6 @@
 #define __LIBMODBUS_PROXY_BACKEND_H_20201030__
  
 
-#include "../../transport/modbus/modbus_proxy.h"
 #include <modbus.h>
 #ifdef WITH_DUMMY_PROXY_BK
 #include "emu.h"
@@ -25,7 +24,7 @@
 
 typedef struct libmodbus_proxy_bk_ctx_t {
     // logic & config
-    proxy_modbus_logic *pL;
+
 
     // buffer
     unsigned char pbBuffer[256];
@@ -58,11 +57,11 @@ int libmodbus_proxy_bk_ready(libmodbus_proxy_bk_ctx *pCtx);
 //
 // common part
 
-int libmodbus_bk_write_regs(modbus_t *pM, unsigned char ucSlaveID, proxy_modbus_conf *pCs, unsigned char ucPCount,
+int libmodbus_bk_write_regs(modbus_t *pM, unsigned char ucSlaveID, unsigned char ucPCount,
     unsigned short usReg, unsigned short *pRegs, unsigned short ucCount,
     char *pcErrorDescr, unsigned char ucErrorDescrSize);
 
-int libmodbus_bk_read_regs(modbus_t *pM, unsigned char ucSlaveID, proxy_modbus_conf *pCs, unsigned char ucPCount,
+int libmodbus_bk_read_regs(modbus_t *pM, unsigned char ucSlaveID,  unsigned char ucPCount,
     unsigned short usReg, unsigned short *pRegs, unsigned short ucCount,
     char *pcErrorDescr, unsigned char ucErrorDescrSize);
 
